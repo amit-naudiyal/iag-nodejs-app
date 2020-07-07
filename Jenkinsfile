@@ -13,8 +13,7 @@ pipeline {
     agent {
      docker {
       image 'node:latest'
-      args '-v /var/jenkins_home/:/home/node'
-       reuseNode true
+      reuseNode true
       }
      }
      steps {
@@ -25,11 +24,11 @@ pipeline {
    agent {
     docker {
      image 'node:latest'
-     args '-v /var/jenkins_home/:/home/node'
      reuseNode true
     }
    }
    steps {
+    node app.js &
     sh 'npm test'
    }
    post {
