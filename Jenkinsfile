@@ -61,7 +61,7 @@ pipeline {
     zip zipFile: 'artifactory.zip', archive: true
    } 
   }  
-  stage('Deploy') {
+  stage('Invoke Deploy') {
     when {
       expression {
         currentBuild.result == null || currentBuild.result == 'SUCCESS' 
