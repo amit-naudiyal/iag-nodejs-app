@@ -28,7 +28,7 @@ pipeline {
     }
    }
    steps {
-    node app.js &
+    sh 'node app.js &'
     sh 'npm test'
    }
    post {
