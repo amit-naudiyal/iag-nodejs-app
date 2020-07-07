@@ -68,7 +68,7 @@ pipeline {
       }
     }
     steps {
-        sh 'echo deploying...'
+        build 'deploy-pipeline'
     }
    }
   }

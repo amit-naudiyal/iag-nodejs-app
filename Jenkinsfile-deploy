@@ -1,0 +1,20 @@
+pipeline {
+ agent any
+ options {
+  skipDefaultCheckout()
+ }
+  stage('Deploy to Container') {
+    agent {
+     docker {
+      image 'node:latest'
+      reuseNode true
+      }
+     }
+     steps {
+      copyArtifacts projectName: iag-nodejs-app, filter: 'artifactory.zip'
+      unzip zipFile: 'artifactory.zip'
+      sh 'npm install'
+     }
+   } 
+ }
+}
