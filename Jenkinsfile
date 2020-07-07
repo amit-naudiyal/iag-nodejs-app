@@ -57,12 +57,6 @@ pipeline {
    } 
   }
   stage('Archival') {
-   agent {
-    docker {
-     image 'node:latest'
-     reuseNode true
-    }
-   }
    steps {
     zip zipFile: 'artifactory.zip', archive: true
    } 
