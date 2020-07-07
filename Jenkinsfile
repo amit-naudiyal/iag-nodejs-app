@@ -25,7 +25,7 @@ pipeline {
    agent {
     docker {
      image 'node:latest'
-     args '-v /root/.m2/repository:/root/.m2/repository'
+     args '-v /var/jenkins_home/:/home/node'
      reuseNode true
     }
    }
