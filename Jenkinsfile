@@ -23,9 +23,6 @@ pipeline {
      }
    }
   stage('Unit Tests') {
-   when {
-    anyOf { branch 'master'; branch 'develop' }
-   }
    agent {
     docker {
      image 'node:6.14.4'
