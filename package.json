@@ -4,7 +4,8 @@
   "description": "hello-world",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "nyc --reporter=html --reporter=text mocha"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,9 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.0.1",
-    "request": "^2.88.2"
+    "nyc": "^15.1.0",
+    "request": "^2.88.2",
+    "sloc": "^0.2.1",
+    "static-code-analysis": "^0.1.9"
   }
 }

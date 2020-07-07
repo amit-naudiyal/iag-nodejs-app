@@ -30,12 +30,29 @@ pipeline {
    steps {
     sh 'node app.js &'
     sh 'npm test'
-   }
-   post {
-    always {
-     junit 'target/surefire-reports/**/*.xml'
+   } 
+  }
+  stage('Code Coverage') {
+   agent {
+    docker {
+     image 'node:latest'
+     reuseNode true
     }
-   }   
-  } 
- }
+   }
+   steps {
+    sh 'npm run coverage'
+    archiveArtifacts artifacts: '**/coverage/*.html', fingerprint: false
+   } 
+  }
+  stage('Deploy') {
+    when {
+      expression {
+        currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+      }
+    }
+    steps {
+        sh 'echo deploying...'
+    }
+   }
+  }
 }
