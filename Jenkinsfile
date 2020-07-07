@@ -40,6 +40,7 @@ pipeline {
     }
    }
    steps {
+    sh 'node app.js &'    
     sh 'npm run coverage'
     archiveArtifacts artifacts: '**/coverage/*.html', fingerprint: false
    } 
