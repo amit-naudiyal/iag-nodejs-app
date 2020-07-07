@@ -12,9 +12,8 @@ pipeline {
   stage('Build') {
     agent {
      docker {
-      image 'node:6.14.4'
+      image 'node:latest'
       args '-v /var/jenkins_home/:/home/node'
-       // to use the same node and workdir defined on top-level pipeline for all docker agents
        reuseNode true
       }
      }
@@ -25,7 +24,7 @@ pipeline {
   stage('Unit Tests') {
    agent {
     docker {
-     image 'node:6.14.4'
+     image 'node:latest'
      args '-v /root/.m2/repository:/root/.m2/repository'
      reuseNode true
     }
