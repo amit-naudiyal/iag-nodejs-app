@@ -3,6 +3,7 @@ pipeline {
  options {
   skipDefaultCheckout()
  }
+ stages {
   stage('Deploy to Container') {
     agent {
      docker {
@@ -16,4 +17,5 @@ pipeline {
       sh 'npm install'
     }
   } 
+ }
 }
