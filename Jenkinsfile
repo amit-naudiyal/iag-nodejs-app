@@ -21,7 +21,7 @@ pipeline {
       }
      }
      steps {
-      cd /home/node && sh 'npm install'
+      sh 'npm install'
      }
    }
   stage('Unit Tests') {
