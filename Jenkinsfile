@@ -32,6 +32,17 @@ pipeline {
     sh 'npm test'
    } 
   }
+  stage('Static Code Analysis') {
+   agent {
+    docker {
+     image 'node:latest'
+     reuseNode true
+    }
+   }
+   steps {
+    sh 'echo linting check...'
+   } 
+  }  
   stage('Code Coverage') {
    agent {
     docker {
@@ -45,6 +56,17 @@ pipeline {
     archiveArtifacts artifacts: '**/coverage/*.html', fingerprint: false
    } 
   }
+  stage('Archival') {
+   agent {
+    docker {
+     image 'node:latest'
+     reuseNode true
+    }
+   }
+   steps {
+    zip zipFile: 'artifactory.zip' archive: true dir: '~/jenkins/artifact-repository​' glob: '**/**'
+   } 
+  }  
   stage('Deploy') {
     when {
       expression {
