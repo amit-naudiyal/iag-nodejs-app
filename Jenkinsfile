@@ -64,7 +64,7 @@ pipeline {
     }
    }
    steps {
-    zip zipFile: 'artifactory.zip', archive: true, dir: '~/jenkins/artifact-repository​', glob: '**/**'
+    zip zipFile: 'artifactory.zip', archive: true
    } 
   }  
   stage('Deploy') {
