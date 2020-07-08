@@ -68,7 +68,7 @@ pipeline {
       }
     }
     steps {
-        build 'deploy-pipeline'
+        build job: 'deploy-pipeline', propagate: true, wait: false
     }
    }
   }
