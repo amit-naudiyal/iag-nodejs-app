@@ -15,6 +15,7 @@ pipeline {
       copyArtifacts projectName: 'iag-nodejs-app', filter: 'artifactory.zip'
       unzip zipFile: 'artifactory.zip'
       sh 'npm install'
+      sh 'node app.js'
     }
   } 
  }
