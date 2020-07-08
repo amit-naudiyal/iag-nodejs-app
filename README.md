@@ -26,5 +26,7 @@ iag-nodejs-app for Problem 2
 
   		3 passing (35ms)
 ```
-
-
++ Coverage (while your application is running...)
+	+ cd iag-nodejs-app
+	+ npm npm run coverage
+	+ This shows the coverage report on console and also saves it under coverage/ folder as html.
